@@ -6,6 +6,12 @@ const Button = (props) => {
   )
 }
 
+const StatisticLine = (props) => {
+  return (
+    <p>{props.text} {props.value}</p>
+  )
+}
+
 const Statistics = (props) => {
   const sumProps = props.props.reduce((acc, cur) => acc + cur, 0)
   console.log(sumProps)
@@ -17,12 +23,12 @@ const Statistics = (props) => {
   return (
     <div>
       <h1>statistics</h1>
-      <p>good {props.props[0]}</p>
-      <p>neutral {props.props[1]}</p>
-      <p>bad {props.props[2]}</p>
-      <p>all {props.props[3]}</p>
-      <p>average {props.props[4]}</p>
-      <p>positive {props.props[5]} %</p>
+      <StatisticLine text={'good'} value={props.props[0]}/>
+      <StatisticLine text={'neutral'} value={props.props[1]}/>
+      <StatisticLine text={'bad'} value={props.props[2]}/>
+      <StatisticLine text={'all'} value={props.props[3]}/>
+      <StatisticLine text={'average'} value={props.props[4]}/>
+      <StatisticLine text={'positive'} value={props.props[5]}/>
     </div>
   )
 }
