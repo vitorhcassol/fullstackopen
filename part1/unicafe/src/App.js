@@ -7,7 +7,13 @@ const Button = (props) => {
 }
 
 const Statistics = (props) => {
-  console.log(props.props)
+  const sumProps = props.props.reduce((acc, cur) => acc + cur, 0)
+  console.log(sumProps)
+  if (sumProps === 0) {
+    return (
+      <p>No feedback given</p>
+    )
+  }
   return (
     <div>
       <h1>statistics</h1>
