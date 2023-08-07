@@ -14,7 +14,6 @@ const StatisticLine = (props) => {
 
 const Statistics = (props) => {
   const sumProps = props.props.reduce((acc, cur) => acc + cur, 0)
-  console.log(sumProps)
   if (sumProps === 0) {
     return (
       <p>No feedback given</p>
@@ -23,12 +22,40 @@ const Statistics = (props) => {
   return (
     <div>
       <h1>statistics</h1>
-      <StatisticLine text={'good'} value={props.props[0]}/>
-      <StatisticLine text={'neutral'} value={props.props[1]}/>
-      <StatisticLine text={'bad'} value={props.props[2]}/>
-      <StatisticLine text={'all'} value={props.props[3]}/>
-      <StatisticLine text={'average'} value={props.props[4]}/>
-      <StatisticLine text={'positive'} value={props.props[5]}/>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <StatisticLine text={'good'} value={props.props[0]}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text={'neutral'} value={props.props[1]}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text={'bad'} value={props.props[2]}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text={'all'} value={props.props[3]}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text={'average'} value={props.props[4]}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <StatisticLine text={'positive'} value={props.props[5]}/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }
