@@ -11,14 +11,23 @@ const App = () => {
     'Programar sem o uso extremamente intenso do console.log é o mesmo que um médico se recusar a usar raio-x ou testes sanguíneos ao diagnosticar pacientes.',
     'A única maneira de ir rápido é ir bem.'
   ]
-   
+
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(new Uint8Array(8))
 
   const nextAnecdote = () => setSelected(Math.floor(Math.random() * 7))
 
+  const addVote = () => {
+    const copy = { ...votes }
+    copy[selected] += 1
+    setVotes(copy)
+  }
+
   return (
     <div>
-      {anecdotes[selected]}
+      <p>{anecdotes[selected]}</p>
+      <p>has {votes[selected]} votes</p>
+      <button onClick={addVote}>vote</button>
       <button onClick={nextAnecdote}>next anecdote</button>
     </div>
   )
